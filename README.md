@@ -5,6 +5,6 @@ HTML &amp; JavaScript codes for online behavioral experiments ran through Amazon
 For more detailed information on task design and experimental procedure, please check my paper, *Satisficing in split-second decision making is characterized by strategic cue discounting*, Oh et al. (2016), Journal of Experimental Psychology: Learning, Memory, and Cognition. 
 
 ### Compound cue 
-
+(https://github.com/hanna5descher/code-experiment-online/Compound cues/task/example_test.png)
 
 ### Noncompound cue 
