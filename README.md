@@ -14,4 +14,4 @@ The study consists of three different versions of experiments with Experiments 1
 ![alt text](https://github.com/hanna5descher/code-experiment-online/blob/master/NoncompoundCues/task/instructions_keyboard.png "noncompound cues")
 
 
-Scripts in each folder includes full versions of the experiments that can be ran on MTurk. Importantly, **MainTask.html** contains step-by-step procedure on how each experimental phase (including instructions, consent forms, and surveys) was presented to MTurk participants. To view sample tasks on your web browser (not through MTurk), try Practice(number).html. The full script can be ran through MTurk or MTUrk Sandbox. 
+Scripts in each folder includes full versions of the experiments that can be ran on MTurk. Importantly, **MainTask.html** contains step-by-step procedure on how each experimental phase (including instructions, consent forms, and surveys) was presented to MTurk participants. To view sample tasks on your web browser (not through MTurk), try Practice(number).html. Since main experimental codes check for Worker IDs, the full script can be tested through MTurk or MTurk Sandbox. 
