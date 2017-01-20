@@ -1,5 +1,5 @@
 # code-experiment-online
-HTML &amp; JavaScript codes for online behavioral experiments conducted through Amazon Mechanical Turk.
+HTML &amp; JavaScript codes for online behavioral experiments conducted through Amazon Mechanical Turk (MTurk).
 
 
 For more detailed information on task design and experimental procedure, please check my paper, *Satisficing in split-second decision making is characterized by strategic cue discounting*, Oh et al. (2016), Journal of Experimental Psychology: Learning, Memory, and Cognition. 
@@ -14,4 +14,4 @@ The study consists of three different versions of experiments with Experiments 1
 ![alt text](https://github.com/hanna5descher/code-experiment-online/blob/master/NoncompoundCues/task/instructions_keyboard.png "noncompound cues")
 
 
-The script 
+Scripts in each folder includes full versions of the experiments that can be ran on MTurk. Importantly, **MainTask.html** contains step-by-step procedure on how each experiment was presented to MTurk participants. To view sample tasks on your web browser (not through MTurk), try Practice(number).html.    
