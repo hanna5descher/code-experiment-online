@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<script type="text/javascript" src="jquery-1.7.1.js">
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	nC = 2; nP = 6; nD = 14; 
+	data = [['']];
+    $("#returnButton").click(function(){
+		
+		var r1 = document.getElementById("rank1");
+    	data[0] = r1.options[r1.selectedIndex].value;
+		var r2 = document.getElementById("rank2");
+    	data[1] = r2.options[r2.selectedIndex].value;
+		var r3 = document.getElementById("rank3");
+    	data[2] = r3.options[r3.selectedIndex].value;
+		var r4 = document.getElementById("rank4");
+    	data[3] = r4.options[r4.selectedIndex].value;
+		
+		var c1 = document.getElementById("nCue1");
+		data[4] = c1.options[c1.selectedIndex].value;
+		var c2 = document.getElementById("nCue2");
+		data[5] = c2.options[c2.selectedIndex].value;
+		
+		var cl = document.getElementsByName("color");
+		var s = document.getElementsByName("shape");
+		var ct = document.getElementsByName("contour");
+		var o = document.getElementsByName("orientation");		
+		for (var i = 0; i < nC; i++) {
+			if (cl[i].checked == true) {data[6] = cl[i].value;}
+			if (s[i].checked == true) {data[7] = s[i].value;}
+			if (ct[i].checked == true) {data[8] = ct[i].value;}
+			if (o[i].checked == true) {data[9] = o[i].value;}
+		}
+		
+		var clP = document.getElementsByName("colorP");
+		var sP = document.getElementsByName("shapeP");
+		var ctP = document.getElementsByName("contourP");
+		var oP = document.getElementsByName("orientationP");		
+		for (var j = 0; j < nP; j++) {
+			if (clP[j].checked == true) {data[10] = clP[j].value;}
+			if (sP[j].checked == true) {data[11] = sP[j].value;}
+			if (ctP[j].checked == true) {data[12] = ctP[j].value;}
+			if (oP[j].checked == true) {data[13] = oP[j].value;}
+		}
+		
+		var nMiss = 0;
+		for (var m = 0; m < nD; m++) {
+			if (data[m] == undefined || data[m] == "") {nMiss++;}
+		}
+		
+		if (nMiss == 0) {
+			$("#Survey", opener.window.document).val(data.join(";"));
+			opener.updateMainMenu(8);
+			JavaScript:window.close();
+		} else {
+			alert("Please fill in all required fields!");
+		}
+	});
+});
+
+</script>
+
+</head>
+<body>
+<h2 style="font-family:arial;">Survey</h2>
+<p style="font-family:arial;font-weight:bold;color:blue;">Please take a few minutes to answer the following questions (all fields are required).</p>
+&nbsp;
+<p style="font-family:arial;font-weight:bold;">1. Please rank the cues from the most informative (1) to the least (4).</p>
+<p style="line-height:23px;font-family:arial;">For example, if you thought weather cues (sun/rain) were the most reliable indicator for winning a given trial and/or if you've made decisions mostly based on weather cues, weather would be the most informative cue.</p>
+<table style="font-family:arial;">
+<td width = "50"></td>
+<td width = "50">most informative</td>
+<td width = "30"></td>
+<td><b>1. </b></td>
+<td><select id="rank1">
+<option value=""></option>
+<option value="C">color</option>
+<option value="S">shape</option>
+<option value="T">contour</option>
+<option value="O">line orientation</option></select></td>
+<td width = "80"></td>
+<td><b>2. </b></td>
+<td><select id="rank2">
+<option value=""></option>
+<option value="C">color</option>
+<option value="S">shape</option>
+<option value="T">contour</option>
+<option value="O">line orientation</option></select></td>
+<td width = "80"></td>
+<td><b>3. </b></td>
+<td><select id="rank3">
+<option value=""></option>
+<option value="C">color</option>
+<option value="S">shape</option>
+<option value="T">contour</option>
+<option value="O">line orientation</option></select></td>
+<td width = "80"></td>
+<td><b>4. </b></td>
+<td><select id="rank4">
+<option value=""></option>
+<option value="C">color</option>
+<option value="S">shape</option>
+<option value="T">contour</option>
+<option value="O">line orientation</option></select></td>
+<td width = "30"></td>
+<td width = "50">least informative</td>
+</table>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;">2. <span style="color:red;">In the slow phase</span>, how many cues, on average, did you take into account before making decisions?</b>&nbsp; &nbsp; &nbsp;
+<select id="nCue1">
+<option value=""></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select></p>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;">3. <span style="color:red;">In the fast phase</span>, how many cues, on average, did you take into account before making decisions?</b>&nbsp; &nbsp; &nbsp;
+<select id="nCue2">
+<option value=""></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select></p>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;">4. Please provide your best guess to answer the questions below.</b></p>
+
+<p style="font-family:arial;font-weight:bold;"> i) Color</p>
+<table style="font-family:arial;"> 
+<tr>
+	<td rowspan="5"><img src="stimuli/survey_color.png"></td>
+	<td colspan="6"><ul><li>Which cue has a higher probability of winning?</li></ul></td>
+</tr>
+<tr><form>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="colorB" name="color" value="1"> blue</td>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="colorR" name="color" value="2"> red</td>
+</form></tr>
+<tr><td colspan="6"><p>&nbsp;</p></td></tr>
+<tr>
+	<td colspan="6"><ul><li>What is your estimate of a winning percentage of the cue you've selected above?</li></ul></td>
+</tr>
+<tr><form>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="50">&nbsp; 50%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="60">&nbsp; 60%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="70">&nbsp; 70%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="80">&nbsp; 80%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="90">&nbsp; 90%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="colorP" value="100">&nbsp; 100%</td>
+</form></tr>
+</table>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;"> ii) Shape</p>
+<table style="font-family:arial;"> 
+<tr>
+	<td rowspan="5"><img src="stimuli/survey_shape.png"></td>
+	<td colspan="6"><ul><li>Which cue has a higher probability of winning?</li></ul></td>
+</tr>
+<tr><form>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="shapeC" name="shape" value="1"> circle</td>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="shapeS" name="shape" value="2"> square</td>
+</form></tr>
+<tr><td colspan="6"><p>&nbsp;</p></td></tr>
+<tr>
+	<td colspan="6"><ul><li>What is your estimate of a winning percentage of the cue you've selected above?</li></ul></td>
+</tr>
+<tr><form>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="50">&nbsp; 50%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="60">&nbsp; 60%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="70">&nbsp; 70%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="80">&nbsp; 80%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="90">&nbsp; 90%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="shapeP" value="100">&nbsp; 100%</td>
+</form></tr>
+</table>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;">iii) Contour</p>
+<table style="font-family:arial;"> 
+<tr>
+	<td rowspan="5"><img src="stimuli/survey_contour.png"></td>
+	<td colspan="6"><ul><li>Which cue has a higher probability of winning?</li></ul></td>
+</tr>
+<tr><form>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="contourB" name="contour" value="2"> black</td>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="contourW" name="contour" value="1"> white</td>
+</form></tr>
+<tr><td colspan="6"><p>&nbsp;</p></td></tr>
+<tr>
+	<td colspan="6"><ul><li>What is your estimate of a winning percentage of the cue you've selected above?</li></ul></td>
+</tr>
+<tr><form>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="50">&nbsp; 50%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="60">&nbsp; 60%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="70">&nbsp; 70%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="80">&nbsp; 80%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="90">&nbsp; 90%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="contourP" value="100">&nbsp; 100%</td>
+</form></tr>
+</table>
+
+&nbsp; 
+<p style="font-family:arial;font-weight:bold;">iv) Line orientation</p>
+<table style="font-family:arial;"> 
+<tr>
+	<td rowspan="5"><img src="stimuli/survey_orientation.png"></td>
+	<td colspan="6"><ul><li>Which cue has a higher probability of winning?</li></ul></td>
+</tr>
+<tr><form>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="orientH" name="orientation" value="1"> horizontal</td>
+	<td></td>
+	<td style="text-align:center"><input type="radio" id="orientV" name="orientation" value="2"> vertical</td>
+</form></tr>
+<tr><td colspan="6"><p>&nbsp;</p></td></tr>
+<tr>
+	<td colspan="6"><ul><li>What is your estimate of a winning percentage of the cue you've selected above?</li></ul></td>
+</tr>
+<tr><form>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="50">&nbsp; 50%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="60">&nbsp; 60%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="70">&nbsp; 70%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="80">&nbsp; 80%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="90">&nbsp; 90%</td>
+	<td style="text-align:center" width = "150"><input type="radio" name="orientationP" value="100">&nbsp; 100%</td>
+</form></tr>
+</table>
+
+&nbsp; 
+<p></p> 
+<button id="returnButton" style="font-family:arial;weather:black;font-size:20px;">submit</button>
+
+</body>
+</html>
